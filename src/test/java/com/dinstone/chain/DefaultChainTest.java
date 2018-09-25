@@ -33,6 +33,9 @@ public class DefaultChainTest {
 
         Object response = chain.intercept("request");
         Assert.assertEquals("response", response);
+        
+        response = chain.intercept("request");
+        Assert.assertEquals("response", response);
     }
 
 }
