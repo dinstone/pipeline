@@ -1,4 +1,3 @@
-
 package com.dinstone.pipeline;
 
 public class DefaultHandlerContext implements HandlerContext {

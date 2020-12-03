@@ -1,4 +1,3 @@
-
 package com.dinstone.chain;
 
 public interface Handler {

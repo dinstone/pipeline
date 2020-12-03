@@ -1,40 +1,36 @@
-
 package com.dinstone.chain;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DefaultChainTest {
+public class FilterChainTest {
 
     @Test
     public void testIntercept() {
-        DefaultChain chain = new DefaultChain(new Handler() {
-
+        FilterChain chain = new FilterChain(new Handler() {
             public Object handle(Object request) {
                 System.out.println("handler");
                 return "response";
             }
         });
 
-        chain.addLast(new Interceptor() {
-
-            public Object intercept(Object request, Chain chain) {
+        chain.addLast(new Filter() {
+            public Object filter(Object request, FilterContext chain) {
                 System.out.println("first");
-                return chain.intercept(request);
+                return chain.handle(request);
             }
         });
-        chain.addLast(new Interceptor() {
-
-            public Object intercept(Object request, Chain chain) {
+        chain.addLast(new Filter() {
+            public Object filter(Object request, FilterContext chain) {
                 System.out.println("second");
-                return chain.intercept(request);
+                return chain.handle(request);
             }
         });
 
-        Object response = chain.intercept("request");
+        Object response = chain.handle("request");
         Assert.assertEquals("response", response);
-        
-        response = chain.intercept("request");
+
+        response = chain.handle("request");
         Assert.assertEquals("response", response);
     }
 

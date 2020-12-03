@@ -1,4 +1,3 @@
-
 package com.dinstone.pipeline;
 
 import org.junit.Test;
@@ -76,6 +75,8 @@ public class DefaultPipelineTest {
         pipeline.fireRequest("messge");
 
         pipeline.fireResponse("messge");
+
+        pipeline.fireRequest("messge");
     }
 
     @Test
