@@ -1,13 +1,15 @@
 package com.dinstone.chain;
 
-class FilterContext {
+public class FilterContext {
 
+    private FilterChain chain;
     private Filter filter;
 
     FilterContext prev;
     FilterContext next;
 
-    FilterContext(Filter filter) {
+    public FilterContext(FilterChain chain, Filter filter) {
+        this.chain = chain;
         this.filter = filter;
     }
 
@@ -19,4 +21,7 @@ class FilterContext {
         }
     }
 
+    public FilterChain getChain() {
+        return chain;
+    }
 }
