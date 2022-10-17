@@ -12,11 +12,13 @@ public class DefaultPipelineTest {
             public void reqeust(HandlerContext context, Object reqeust) {
                 System.out.println("first reqeust");
                 context.fireRequest(reqeust);
+                System.out.println("first reqeust");
             }
 
             public void response(HandlerContext context, Object response) {
                 System.out.println("first response");
                 context.fireResponse(response);
+                System.out.println("first response");
             }
 
         });
